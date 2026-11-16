@@ -685,8 +685,8 @@
   // =========================================================
   // REPLACE WITH YOUR SUPABASE PROJECT URL & ANON PUBLIC KEY
   // =========================================================
-  const SUPABASE_URL = 'YOUR_SUPABASE_URL';
-  const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+  const SUPABASE_URL = 'https://wpmqmedazytlxacbqoqq.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndwbXFtZWRhenl0bHhhY2Jxb3FxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQ4MDc3MzYsImV4cCI6MjExMDM4MzczNn0.SqK1fGfGKmqAXvBd2HH-zzKomPlJnvQ3HfCq8B-aZeo';
 
   const isConfigured = SUPABASE_URL.startsWith('http');
   const sb = isConfigured ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;

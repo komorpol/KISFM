@@ -13,462 +13,93 @@
       --primary: #0c2340;
       --primary-light: #163761;
       --accent: #d97706;
-      --bg: #f1f5f9;
+      --bg: #f8fafc;
       --card: #ffffff;
       --text: #0f172a;
       --muted: #475569;
       --border: #e2e8f0;
-      --radius: 16px;
+      --radius: 18px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Hind Siliguri', 'Plus Jakarta Sans', sans-serif;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      padding-bottom: 3rem;
-    }
-
-    .wrapper {
-      width: 100%;
-      max-width: 560px;
-      background: var(--bg);
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Hind Siliguri', 'Plus Jakarta Sans', sans-serif; }
+    body { background: var(--bg); color: var(--text); min-height: 100vh; display: flex; justify-content: center; padding-bottom: 4rem; }
+    .wrapper { width: 100%; max-width: 560px; background: var(--bg); box-shadow: 0 0 40px rgba(0,0,0,0.05); min-height: 100vh; }
 
     /* Cover Banner */
-    .cover-wrapper {
-      position: relative;
-      width: 100%;
-      height: 190px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      overflow: hidden;
-      border-bottom-left-radius: 24px;
-      border-bottom-right-radius: 24px;
-    }
+    .cover-wrapper { position: relative; width: 100%; height: 210px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); overflow: hidden; border-bottom-left-radius: 28px; border-bottom-right-radius: 28px; }
+    .cover-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+    .cover-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(12, 35, 64, 0.2), rgba(12, 35, 64, 0.85)); }
 
-    .cover-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.78;
-    }
-
-    .cover-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(12, 35, 64, 0.25), rgba(12, 35, 64, 0.8));
-    }
-
-    .top-bar {
-      position: absolute;
-      top: 14px;
-      left: 16px;
-      right: 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 5;
-    }
-
-    .est-badge {
-      background: rgba(255, 255, 255, 0.18);
-      backdrop-filter: blur(8px);
-      color: #fff;
-      padding: 4px 12px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-    }
-
-    .lang-btn {
-      background: #fff;
-      color: var(--primary);
-      border: none;
-      padding: 5px 12px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 0.82rem;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    }
+    .top-bar { position: absolute; top: 16px; left: 16px; right: 16px; display: flex; justify-content: space-between; align-items: center; z-index: 5; }
+    .est-badge { background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(8px); color: #fff; padding: 5px 14px; border-radius: 999px; font-size: 0.82rem; font-weight: 600; border: 1px solid rgba(255, 255, 255, 0.3); }
+    .lang-btn { background: #fff; color: var(--primary); border: none; padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 0.82rem; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: 0.2s; }
+    .lang-btn:hover { transform: scale(1.05); }
 
     /* Profile Header */
-    .profile-section {
-      padding: 0 18px;
-      margin-top: -54px;
-      position: relative;
-      z-index: 6;
-      text-align: center;
-    }
+    .profile-section { padding: 0 20px; margin-top: -60px; position: relative; z-index: 6; text-align: center; }
+    .logo-box { width: 116px; height: 116px; margin: 0 auto 12px; border-radius: 50%; background: #fff; padding: 6px; box-shadow: 0 10px 30px rgba(12, 35, 64, 0.2); border: 4px solid var(--accent); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .logo-box img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
 
-    .logo-box {
-      width: 108px;
-      height: 108px;
-      margin: 0 auto 12px;
-      border-radius: 50%;
-      background: #fff;
-      padding: 6px;
-      box-shadow: 0 8px 24px rgba(12, 35, 64, 0.18);
-      border: 3px solid var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
+    .inst-name { font-size: 1.5rem; font-weight: 700; color: var(--primary); line-height: 1.3; margin-bottom: 4px; }
+    .inst-motto { font-size: 0.95rem; color: var(--muted); margin-bottom: 12px; }
+    .meta-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 18px; }
+    .pill { background: #fff; border: 1px solid var(--border); padding: 5px 14px; border-radius: 999px; font-size: 0.82rem; font-weight: 600; color: var(--primary); box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
 
-    .logo-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 50%;
-    }
+    /* Quick Action Buttons */
+    .quick-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 22px; }
+    .q-btn { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 12px 6px; text-decoration: none; color: var(--primary); font-size: 0.82rem; font-weight: 600; display: flex; flex-direction: column; align-items: center; gap: 5px; cursor: pointer; transition: 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.02); }
+    .q-btn:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 6px 15px rgba(12,35,64,0.08); }
 
-    .inst-name {
-      font-size: 1.45rem;
-      font-weight: 700;
-      color: var(--primary);
-      line-height: 1.3;
-      margin-bottom: 4px;
-    }
+    /* Notice Card */
+    .notice-card { background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 1px solid #fde68a; border-left: 5px solid var(--accent); border-radius: 16px; padding: 14px 16px; margin: 0 20px 24px; display: flex; justify-content: space-between; align-items: center; gap: 12px; cursor: pointer; box-shadow: 0 4px 12px rgba(217,119,6,0.08); transition: 0.2s; }
+    .notice-card:hover { transform: translateY(-2px); }
+    .notice-tag { background: var(--accent); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 2px 9px; border-radius: 6px; display: inline-block; margin-bottom: 4px; }
+    .notice-title { font-size: 0.95rem; font-weight: 600; color: #78350f; }
 
-    .inst-motto {
-      font-size: 0.94rem;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .meta-pills {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .pill {
-      background: #fff;
-      border: 1px solid var(--border);
-      padding: 4px 12px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--primary);
-    }
-
-    /* Quick Contact Strip */
-    .quick-actions {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin-bottom: 18px;
-    }
-
-    .q-btn {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 10px 4px;
-      text-decoration: none;
-      color: var(--primary);
-      font-size: 0.82rem;
-      font-weight: 600;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .q-btn:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    /* Notice Ticker Card */
-    .notice-card {
-      background: #fffbeb;
-      border: 1px solid #fde68a;
-      border-left: 5px solid var(--accent);
-      border-radius: 14px;
-      padding: 12px 14px;
-      margin: 0 18px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-    }
-
-    .notice-tag {
-      background: var(--accent);
-      color: #fff;
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 6px;
-      display: inline-block;
-      margin-bottom: 4px;
-    }
-
-    .notice-title {
-      font-size: 0.94rem;
-      font-weight: 600;
-      color: #78350f;
-    }
-
-    /* Link Sections */
-    .section {
-      padding: 0 18px;
-      margin-bottom: 20px;
-    }
-
-    .section-title {
-      font-size: 0.88rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--muted);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .link-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .link-item {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 13px 16px;
-      text-decoration: none;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
-      transition: all 0.2s ease;
-    }
-
-    .link-item:hover {
-      border-color: var(--primary);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 18px rgba(12, 35, 64, 0.09);
-    }
-
-    .link-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      background: #eff6ff;
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      flex-shrink: 0;
-    }
-
-    .link-info {
-      flex: 1;
-    }
-
-    .link-title {
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--primary);
-    }
-
-    .link-sub {
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    .arrow {
-      color: #94a3b8;
-      font-weight: 700;
-    }
+    /* Sections & Links */
+    .section { padding: 0 20px; margin-bottom: 24px; }
+    .section-title { font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .link-list { display: flex; flex-direction: column; gap: 12px; }
+    .link-item { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; text-decoration: none; color: var(--text); display: flex; align-items: center; gap: 16px; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03); transition: all 0.2s ease; }
+    .link-item:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(12, 35, 64, 0.1); }
+    .link-icon { width: 44px; height: 44px; border-radius: 12px; background: #eff6ff; color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; flex-shrink: 0; }
+    .link-info { flex: 1; }
+    .link-title { font-weight: 700; font-size: 1.02rem; color: var(--primary); }
+    .link-sub { font-size: 0.84rem; color: var(--muted); margin-top: 2px; }
+    .arrow { color: #94a3b8; font-weight: 700; font-size: 1.1rem; }
 
     /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px 18px 10px;
-      font-size: 0.84rem;
-      color: var(--muted);
-    }
-
-    .admin-trigger {
-      margin-top: 10px;
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      padding: 5px 14px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      cursor: pointer;
-    }
-
-    .admin-trigger:hover {
-      background: var(--primary);
-      color: #fff;
-    }
+    footer { text-align: center; padding: 24px 20px 12px; font-size: 0.86rem; color: var(--muted); border-top: 1px solid var(--border); margin-top: 10px; }
+    .admin-trigger { margin-top: 12px; background: var(--card); border: 1px solid var(--border); color: var(--primary); padding: 8px 18px; border-radius: 999px; font-size: 0.84rem; font-weight: 600; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.03); transition: 0.2s; }
+    .admin-trigger:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
 
     /* Modals */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.65);
-      backdrop-filter: blur(4px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      z-index: 50;
-    }
-
-    .modal-backdrop.active {
-      display: flex;
-    }
-
-    .modal-box {
-      background: #fff;
-      width: 100%;
-      max-width: 540px;
-      max-height: 90vh;
-      border-radius: 20px;
-      overflow-y: auto;
-      padding: 20px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 12px;
-      margin-bottom: 16px;
-    }
-
-    .close-btn {
-      background: #f1f5f9;
-      border: none;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      font-size: 1.1rem;
-      cursor: pointer;
-    }
+    .modal-backdrop { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(5px); display: none; align-items: center; justify-content: center; padding: 16px; z-index: 50; }
+    .modal-backdrop.active { display: flex; }
+    .modal-box { background: #fff; width: 100%; max-width: 540px; max-height: 90vh; border-radius: 22px; overflow-y: auto; padding: 24px; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25); }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 14px; margin-bottom: 18px; }
+    .close-btn { background: #f1f5f9; border: none; width: 36px; height: 36px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
+    .close-btn:hover { background: #e2e8f0; }
 
     /* Admin Tabs & Forms */
-    .tabs {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 8px;
-      overflow-x: auto;
-    }
-
-    .tab-btn {
-      padding: 7px 14px;
-      border: none;
-      background: #f1f5f9;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .tab-btn.active {
-      background: var(--primary);
-      color: #fff;
-    }
-
+    .tabs { display: flex; gap: 8px; margin-bottom: 18px; border-bottom: 1px solid var(--border); padding-bottom: 10px; overflow-x: auto; }
+    .tab-btn { padding: 8px 16px; border: none; background: #f1f5f9; border-radius: 10px; font-weight: 600; font-size: 0.86rem; cursor: pointer; white-space: nowrap; transition: 0.2s; }
+    .tab-btn.active { background: var(--primary); color: #fff; }
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
 
-    .form-group {
-      margin-bottom: 12px;
-    }
+    .form-group { margin-bottom: 14px; }
+    label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; color: var(--primary); }
+    input, textarea, select { width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 0.94rem; background: #fff; }
+    input:focus, textarea:focus, select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(12,35,64,0.1); }
+    
+    .btn-primary { background: var(--primary); color: #fff; border: none; padding: 11px 18px; border-radius: 10px; font-weight: 600; cursor: pointer; width: 100%; margin-top: 8px; transition: 0.2s; }
+    .btn-primary:hover { background: var(--primary-light); }
+    .btn-danger { background: #dc2626; color: #fff; border: none; padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: 0.2s; }
+    .btn-danger:hover { background: #b91c1c; }
 
-    label {
-      display: block;
-      font-size: 0.84rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-      color: var(--primary);
-    }
-
-    input, textarea, select {
-      width: 100%;
-      padding: 9px 12px;
-      border: 1px solid #cbd5e1;
-      border-radius: 10px;
-      font-size: 0.92rem;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 10px;
-      font-weight: 600;
-      cursor: pointer;
-      width: 100%;
-      margin-top: 6px;
-    }
-
-    .btn-danger {
-      background: #dc2626;
-      color: #fff;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 6px;
-      font-size: 0.78rem;
-      cursor: pointer;
-    }
-
-    .admin-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      margin-bottom: 8px;
-      gap: 10px;
-    }
-
-    .toast {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #0f172a;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 999px;
-      font-size: 0.88rem;
-      z-index: 100;
-      display: none;
-    }
+    .admin-row { display: flex; justify-content: space-between; align-items: center; padding: 12px; border: 1px solid var(--border); border-radius: 12px; margin-bottom: 10px; gap: 12px; background: #f8fafc; }
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #0f172a; color: #fff; padding: 12px 24px; border-radius: 999px; font-size: 0.9rem; z-index: 100; display: none; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
   </style>
 </head>
 <body>
@@ -528,7 +159,7 @@
 
   <!-- Footer -->
   <footer>
-    <p id="footerAddress">গ্রাম: কোমরপোল, উপজেলা: কেশবপুর, জেলা: যশোর।</p>
+    <p id="footerAddress">গ্রাম: কোমরপোল, ডাকঘর: কোমরপোল, উপজেলা: কেশবপুর, জেলা: যশোর।</p>
     <p style="margin-top:4px;">© ২০২৬ কোমরপোল ইসলামিয়া সাবানিয়া ফাজিল মাদ্রাসা</p>
     <button class="admin-trigger" onclick="openAdminModal()">🔐 Admin Login / Edit</button>
   </footer>
@@ -549,7 +180,7 @@
 <div class="modal-backdrop" id="adminModal">
   <div class="modal-box">
     <div class="modal-header">
-      <h3>⚙️ অ্যাডমিন প্যানেল (Admin Control)</h3>
+      <h3 style="color:var(--primary)">⚙️ অ্যাডমিন প্যানেল (Admin Control)</h3>
       <button class="close-btn" onclick="closeModal('adminModal')">✕</button>
     </div>
 
@@ -569,21 +200,21 @@
 
     <!-- Authenticated Dashboard View -->
     <div id="adminDashboardView" style="display:none;">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-        <span style="font-size:0.84rem; color:#16a34a; font-weight:600;" id="loggedUserLabel">● Logged in</span>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; background:#f1f5f9; padding:10px 14px; border-radius:10px;">
+        <span style="font-size:0.86rem; color:#16a34a; font-weight:700;" id="loggedUserLabel">● Logged in</span>
         <button class="btn-danger" onclick="handleLogout()">Logout</button>
       </div>
 
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab('tabBranding', this)">Logo, Cover & Info</button>
-        <button class="tab-btn" onclick="switchTab('tabNotices', this)">Notice Edit</button>
-        <button class="tab-btn" onclick="switchTab('tabLinks', this)">Links Edit</button>
+        <button class="tab-btn" onclick="switchTab('tabNotices', this)">Notices Manager</button>
+        <button class="tab-btn" onclick="switchTab('tabLinks', this)">Links Manager</button>
       </div>
 
-      <!-- TAB 1: Branding, Logo, Cover -->
+      <!-- TAB 1: Branding -->
       <div id="tabBranding" class="tab-panel active">
         <div class="form-group">
-          <label>Upload Logo (PNG/JPG)</label>
+          <label>Upload Logo File (PNG/JPG)</label>
           <input type="file" id="logoFileInput" accept="image/*" />
         </div>
         <div class="form-group">
@@ -591,7 +222,7 @@
           <input type="text" id="editLogoUrl" />
         </div>
         <div class="form-group">
-          <label>Upload Cover Photo</label>
+          <label>Upload Cover File</label>
           <input type="file" id="coverFileInput" accept="image/*" />
         </div>
         <div class="form-group">
@@ -603,14 +234,6 @@
           <input type="text" id="editNameBn" />
         </div>
         <div class="form-group">
-          <label>Institution Name (English)</label>
-          <input type="text" id="editNameEn" />
-        </div>
-        <div class="form-group">
-          <label>নীতিবাক্য / Motto (বাংলা)</label>
-          <input type="text" id="editMottoBn" />
-        </div>
-        <div class="form-group">
           <label>EIIN Number</label>
           <input type="text" id="editEiin" />
         </div>
@@ -620,12 +243,12 @@
         </div>
         <div class="form-group">
           <label>Primary Theme Color</label>
-          <input type="color" id="editThemePrimary" style="height:40px;" />
+          <input type="color" id="editThemePrimary" style="height:42px;" />
         </div>
-        <button class="btn-primary" onclick="saveSiteSettings()">Save Website Changes</button>
+        <button class="btn-primary" onclick="saveSiteSettings()">Save Changes</button>
       </div>
 
-      <!-- TAB 2: Notice Manager -->
+      <!-- TAB 2: Notices -->
       <div id="tabNotices" class="tab-panel">
         <div class="form-group">
           <label>নতুন নোটিশের শিরোনাম (বাংলা)</label>
@@ -633,7 +256,7 @@
         </div>
         <div class="form-group">
           <label>বিস্তারিত বিবরণ</label>
-          <textarea id="newNoticeDetails" rows="2" placeholder="নোটিশের বিস্তারিত লিখুন..."></textarea>
+          <textarea id="newNoticeDetails" rows="2" placeholder="নোটিশের বিস্তারিত..."></textarea>
         </div>
         <div class="form-group" style="display:flex; gap:10px;">
           <select id="newNoticeCategory">
@@ -646,33 +269,33 @@
           </label>
         </div>
         <button class="btn-primary" onclick="addNotice()">+ Publish Notice</button>
-        <hr style="margin:14px 0; border:0; border-top:1px solid var(--border);" />
+        <hr style="margin:16px 0; border:0; border-top:1px solid var(--border);" />
         <div id="adminNoticesList"></div>
       </div>
 
-      <!-- TAB 3: Links Manager -->
+      <!-- TAB 3: Links -->
       <div id="tabLinks" class="tab-panel">
         <div class="form-group">
           <label>Button Title (বাংলা)</label>
           <input type="text" id="newLinkTitleBn" placeholder="যেমন: অনলাইন রেজাল্ট" />
         </div>
         <div class="form-group">
-          <label>Button Title (English)</label>
-          <input type="text" id="newLinkTitleEn" placeholder="e.g. Online Results" />
-        </div>
-        <div class="form-group">
           <label>URL (https://...)</label>
           <input type="url" id="newLinkUrl" placeholder="https://example.com" />
         </div>
-        <div class="form-group" style="display:flex; gap:8px;">
-          <input type="text" id="newLinkIcon" value="🔗" style="width:70px; text-align:center;" />
+        <div class="form-group">
+          <label>Subtitle (ঐচ্ছিক)</label>
+          <input type="text" id="newLinkSub" placeholder="যেমন: বোর্ড ও অভ্যন্তরীণ ফলাফল" />
+        </div>
+        <div class="form-group" style="display:flex; gap:10px;">
+          <input type="text" id="newLinkIcon" value="🔗" style="width:80px; text-align:center;" title="Icon" />
           <select id="newLinkCategory">
-            <option value="academic">একাডেমিক সেকশন</option>
-            <option value="official">অফিসিয়াল সেকশন</option>
+            <option value="academic">একাডেমিক সেকশন (Academic)</option>
+            <option value="official">অফিসিয়াল সেকশন (Official)</option>
           </select>
         </div>
         <button class="btn-primary" onclick="addLink()">+ Add Link Button</button>
-        <hr style="margin:14px 0; border:0; border-top:1px solid var(--border);" />
+        <hr style="margin:16px 0; border:0; border-top:1px solid var(--border);" />
         <div id="adminLinksList"></div>
       </div>
     </div>
@@ -683,7 +306,7 @@
 
 <script>
   // =========================================================
-  // REPLACE WITH YOUR SUPABASE PROJECT URL & ANON PUBLIC KEY
+  // SUPABASE CONFIGURATION (ADDED)
   // =========================================================
   const SUPABASE_URL = 'https://wpmqmedazytlxacbqoqq.supabase.co';
   const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndwbXFtZWRhenl0bHhhY2Jxb3FxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQ4MDc3MzYsImV4cCI6MjExMDM4MzczNn0.SqK1fGfGKmqAXvBd2HH-zzKomPlJnvQ3HfCq8B-aZeo';
@@ -691,7 +314,6 @@
   const isConfigured = SUPABASE_URL.startsWith('http');
   const sb = isConfigured ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 
-  // Default Fallback SVG Crest (Navy Blue & Gold, 10% circular margin)
   const DEFAULT_LOGO_SVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
       <circle cx="100" cy="100" r="80" fill="#0c2340" stroke="#d97706" stroke-width="5"/>
@@ -708,9 +330,6 @@
       name_bn: 'কোমরপোল ইসলামিয়া সাবানিয়া ফাজিল মাদ্রাসা',
       name_en: 'Komorpol Islamia Sabania Fazil Madrasah',
       motto_bn: 'দ্বীনি ও আধুনিক শিক্ষার সমন্বিত আদর্শ বিদ্যাপীঠ',
-      motto_en: 'An Ideal Institution Integrating Islamic & Modern Education',
-      location_bn: 'কেশবপুর, যশোর • স্থাপিত: ১৯৭৪ ইং',
-      location_en: 'Keshabpur, Jashore • Est. 1974',
       eiin: '115836',
       logo_url: '',
       cover_url: 'https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=1200&auto=format&fit=crop',
@@ -720,155 +339,95 @@
       email: 'info@kisfm.edu.bd',
       address_bn: 'গ্রাম: কোমরপোল, ডাকঘর: কোমরপোল, উপজেলা: কেশবপুর, জেলা: যশোর।'
     },
-    notices: [
-      {
-        id: '1',
-        title_bn: '২০২৬ শিক্ষাবর্ষে ইবতেদায়ী থেকে ফাজিল শ্রেণিতে ভর্তি চলছে',
-        title_en: 'Admission Open 2026 (Ebtedayee to Fazil)',
-        details_bn: 'অফিস চলাকালীন সময়ে মাদ্রাসা অফিসে যোগাযোগ করার জন্য অনুরোধ করা হলো।',
-        category: 'ভর্তি',
-        is_pinned: true,
-        published_date: '2026-11-16'
-      }
-    ],
+    notices: [{ id: '1', title_bn: '২০২৬ শিক্ষাবর্ষে ইবতেদায়ী থেকে ফাজিল শ্রেণিতে ভর্তি চলছে', details_bn: 'মাদ্রাসা অফিসে যোগাযোগ করুন।', category: 'ভর্তি', is_pinned: true, published_date: '2026-11-16' }],
     links: [
-      { id: '1', title_bn: 'অনলাইন ভর্তি আবেদন', title_en: 'Online Admission', subtitle_bn: 'ইবতেদায়ী, দাখিল, আলিম ও ফাজিল', url: 'https://kisfm.edu.bd', icon: '🎓', category: 'academic', sort_order: 1 },
-      { id: '2', title_bn: 'পরীক্ষার ফলাফল', title_en: 'Exam Results', subtitle_bn: 'বোর্ড ও অভ্যন্তরীণ ফলাফল', url: 'https://eboardresults.com', icon: '📊', category: 'academic', sort_order: 2 },
-      { id: '3', title_bn: 'বাংলাদেশ মাদ্রাসা শিক্ষা বোর্ড', title_en: 'Madrasah Education Board', subtitle_bn: 'bmeb.gov.bd', url: 'https://bmeb.gov.bd', icon: '🏛️', category: 'official', sort_order: 3 },
-      { id: '4', title_bn: 'ইসলামি আরবি বিশ্ববিদ্যালয়', title_en: 'Islamic Arabic University', subtitle_bn: 'iau.edu.bd', url: 'https://iau.edu.bd', icon: '🕌', category: 'official', sort_order: 4 }
+      { id: '1', title_bn: 'অনলাইন ভর্তি আবেদন', subtitle_bn: 'ইবতেদায়ী থেকে ফাজিল', url: '#', icon: '🎓', category: 'academic', sort_order: 1 },
+      { id: '2', title_bn: 'পরীক্ষার ফলাফল', subtitle_bn: 'বোর্ড ও অভ্যন্তরীণ ফলাফল', url: 'https://eboardresults.com', icon: '📊', category: 'academic', sort_order: 2 },
+      { id: '3', title_bn: 'বাংলাদেশ মাদ্রাসা শিক্ষা বোর্ড', subtitle_bn: 'bmeb.gov.bd', url: 'https://bmeb.gov.bd', icon: '🏛️', category: 'official', sort_order: 3 },
+      { id: '4', title_bn: 'ইসলামি আরবি বিশ্ববিদ্যালয়', subtitle_bn: 'iau.edu.bd', url: 'https://iau.edu.bd', icon: '🕌', category: 'official', sort_order: 4 }
     ]
   };
 
   function showToast(msg) {
     const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.style.display = 'block';
+    t.textContent = msg; t.style.display = 'block';
     setTimeout(() => { t.style.display = 'none'; }, 3000);
   }
 
-  // Load Data from Supabase
   async function loadAllData() {
-    if (!sb) {
-      renderPage();
-      return;
-    }
+    if (!sb) { renderPage(); return; }
     try {
       const [setRes, notRes, linkRes] = await Promise.all([
         sb.from('site_settings').select('*').eq('id', 1).single(),
         sb.from('notices').select('*').eq('is_active', true).order('is_pinned', { ascending: false }).order('created_at', { ascending: false }),
         sb.from('links').select('*').eq('is_active', true).order('sort_order', { ascending: true })
       ]);
-
       if (setRes.data) state.settings = setRes.data;
       if (notRes.data && notRes.data.length) state.notices = notRes.data;
-      if (linkRes.data && linkRes.data.length) state.links = linkRes.data;
-    } catch (e) {
-      console.error('Supabase fetch error:', e);
-    }
+      if (linkRes.data) state.links = linkRes.data;
+    } catch (e) { console.error(e); }
     renderPage();
   }
 
   function renderPage() {
     const s = state.settings;
     const isBn = currentLang === 'bn';
-
     document.documentElement.style.setProperty('--primary', s.theme_primary || '#0c2340');
     document.getElementById('logoImg').src = s.logo_url || DEFAULT_LOGO_SVG;
     document.getElementById('coverImg').src = s.cover_url || 'https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=1200&auto=format&fit=crop';
-
     document.getElementById('instName').textContent = isBn ? s.name_bn : (s.name_en || s.name_bn);
-    document.getElementById('instMotto').textContent = isBn ? s.motto_bn : (s.motto_en || s.motto_bn);
-    document.getElementById('locationPill').textContent = '📍 ' + (isBn ? 'কেশবপুর, যশোর' : 'Keshabpur, Jashore');
+    document.getElementById('instMotto').textContent = isBn ? (s.motto_bn || '') : (s.motto_en || s.motto_bn || '');
     document.getElementById('eiinPill').textContent = '🏛️ EIIN: ' + (s.eiin || '115836');
-    document.getElementById('estBadge').textContent = isBn ? 'স্থাপিত: ১৯৭৪ ইং' : 'Est. 1974';
     document.getElementById('langBtn').textContent = isBn ? 'English' : 'বাংলা';
 
     document.getElementById('callBtn').href = 'tel:' + s.phone;
     document.getElementById('waBtn').href = 'https://wa.me/' + (s.whatsapp || s.phone.replace(/\D/g, ''));
     document.getElementById('emailBtn').href = 'mailto:' + s.email;
-    document.getElementById('footerAddress').textContent = s.address_bn;
+    document.getElementById('footerAddress').textContent = s.address_bn || '';
 
-    document.querySelectorAll('[data-bn]').forEach(el => {
-      el.textContent = isBn ? el.getAttribute('data-bn') : el.getAttribute('data-en');
-    });
-
-    document.getElementById('secAcademic').textContent = isBn ? '📚 একাডেমিক ও অনলাইন সেবা' : '📚 Academic & Online Portals';
-    document.getElementById('secOfficial').textContent = isBn ? '🌐 অফিসিয়াল পোর্টাল ও যোগাযোগ' : '🌐 Official Channels & Location';
-    document.getElementById('noticeBadge').textContent = isBn ? '📢 জরুরি নোটিশ' : '📢 Latest Notice';
-    document.getElementById('allNoticeBtn').textContent = isBn ? 'সব দেখুন →' : 'View All →';
-
-    // Pinned Notice
     const topNotice = state.notices[0];
-    if (topNotice) {
-      document.getElementById('pinnedNoticeTitle').textContent = isBn ? topNotice.title_bn : (topNotice.title_en || topNotice.title_bn);
-    }
+    if (topNotice) document.getElementById('pinnedNoticeTitle').textContent = topNotice.title_bn;
 
-    // Render Links
     const acadEl = document.getElementById('academicLinks');
     const offEl = document.getElementById('officialLinks');
-    acadEl.innerHTML = '';
-    offEl.innerHTML = '';
+    acadEl.innerHTML = ''; offEl.innerHTML = '';
 
     state.links.forEach(link => {
-      const title = isBn ? link.title_bn : (link.title_en || link.title_bn);
       const html = `
         <a class="link-item" href="${link.url}" target="_blank" rel="noopener noreferrer">
           <div class="link-icon">${link.icon || '🔗'}</div>
           <div class="link-info">
-            <div class="link-title">${title}</div>
+            <div class="link-title">${link.title_bn}</div>
             ${link.subtitle_bn ? `<div class="link-sub">${link.subtitle_bn}</div>` : ''}
           </div>
           <span class="arrow">↗</span>
-        </a>
-      `;
-      if (link.category === 'official') offEl.insertAdjacentHTML('beforeend', html);
-      else acadEl.insertAdjacentHTML('beforeend', html);
+        </a>`;
+      if (link.category === 'official') {
+        offEl.insertAdjacentHTML('beforeend', html);
+      } else {
+        acadEl.insertAdjacentHTML('beforeend', html);
+      }
     });
   }
 
-  function toggleLang() {
-    currentLang = currentLang === 'bn' ? 'en' : 'bn';
-    renderPage();
-  }
+  function toggleLang() { currentLang = currentLang === 'bn' ? 'en' : 'bn'; renderPage(); }
+  function shareSite() { if (navigator.share) navigator.share({ title: state.settings.name_bn, url: window.location.href }); else { navigator.clipboard.writeText(window.location.href); showToast('লিংক কপি হয়েছে!'); } }
 
-  function shareSite() {
-    if (navigator.share) {
-      navigator.share({ title: state.settings.name_bn, url: window.location.href });
-    } else {
-      navigator.clipboard.writeText(window.location.href);
-      showToast('লিংক কপি হয়েছে!');
-    }
-  }
-
-  // Notice Modal
   function openNoticeModal() {
-    const list = document.getElementById('allNoticesList');
-    list.innerHTML = state.notices.map(n => `
-      <div style="border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:12px; padding:12px; margin-bottom:10px;">
-        <div style="display:flex; justify-content:space-between; font-size:0.78rem; color:var(--muted); margin-bottom:4px;">
-          <span style="background:#fef3c7; color:#92400e; padding:1px 8px; border-radius:6px; font-weight:600;">${n.category}</span>
-          <span>📅 ${n.published_date || ''}</span>
-        </div>
-        <h4 style="color:var(--primary); margin-bottom:4px;">${n.title_bn}</h4>
+    document.getElementById('allNoticesList').innerHTML = state.notices.map(n => `
+      <div style="border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:12px; padding:12px; margin-bottom:10px; background:#fff;">
+        <span style="background:#fef3c7; color:#92400e; padding:2px 8px; border-radius:6px; font-size:0.75rem; font-weight:700;">${n.category}</span>
+        <h4 style="color:var(--primary); margin:6px 0 4px; font-size:1rem;">${n.title_bn}</h4>
         <p style="font-size:0.88rem; color:var(--muted);">${n.details_bn || ''}</p>
-      </div>
-    `).join('');
+      </div>`).join('');
     document.getElementById('noticeModal').classList.add('active');
   }
 
-  function closeModal(id) {
-    document.getElementById(id).classList.remove('active');
-  }
+  function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 
-  // =========================================================
-  // ADMIN AUTHENTICATION & CRUD OPERATIONS
-  // =========================================================
   async function openAdminModal() {
     document.getElementById('adminModal').classList.add('active');
-    if (!sb) {
-      document.getElementById('loginError').textContent = 'Supabase URL & Key আগে index.html ফাইলে বসান।';
-      return;
-    }
+    if (!sb) { document.getElementById('loginError').textContent = 'Supabase URL & Key সেট করা হয়নি।'; return; }
     const { data: { session } } = await sb.auth.getSession();
     if (session) showAdminDashboard(session.user);
   }
@@ -877,177 +436,119 @@
     if (!sb) return;
     const email = document.getElementById('adminEmail').value.trim();
     const password = document.getElementById('adminPassword').value;
-    document.getElementById('loginError').textContent = 'Logging in...';
-
     const { data, error } = await sb.auth.signInWithPassword({ email, password });
-    if (error) {
-      document.getElementById('loginError').textContent = error.message;
-    } else {
-      document.getElementById('loginError').textContent = '';
-      showAdminDashboard(data.user);
-      showToast('Admin Login Successful!');
-    }
+    if (error) document.getElementById('loginError').textContent = error.message;
+    else { showAdminDashboard(data.user); showToast('লগইন সফল হয়েছে!'); }
   }
 
   async function handleLogout() {
     if (sb) await sb.auth.signOut();
     document.getElementById('adminDashboardView').style.display = 'none';
     document.getElementById('adminLoginView').style.display = 'block';
-    showToast('Logged out');
   }
 
   function showAdminDashboard(user) {
     document.getElementById('adminLoginView').style.display = 'none';
     document.getElementById('adminDashboardView').style.display = 'block';
     document.getElementById('loggedUserLabel').textContent = '● ' + user.email;
-
     const s = state.settings;
     document.getElementById('editLogoUrl').value = s.logo_url || '';
     document.getElementById('editCoverUrl').value = s.cover_url || '';
     document.getElementById('editNameBn').value = s.name_bn || '';
-    document.getElementById('editNameEn').value = s.name_en || '';
-    document.getElementById('editMottoBn').value = s.motto_bn || '';
     document.getElementById('editEiin').value = s.eiin || '';
     document.getElementById('editPhone').value = s.phone || '';
     document.getElementById('editThemePrimary').value = s.theme_primary || '#0c2340';
-
     renderAdminLists();
   }
 
-  function switchTab(tabId, btn) {
+  function switchTab(id, btn) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById(tabId).classList.add('active');
-    btn.classList.add('active');
+    document.getElementById(id).classList.add('active'); btn.classList.add('active');
   }
 
-  // Upload Image to Supabase Storage Bucket ('media')
   async function uploadImageFile(file, prefix) {
     const ext = file.name.split('.').pop();
-    const filePath = `${prefix}-${Date.now()}.${ext}`;
-    const { error } = await sb.storage.from('media').upload(filePath, file, { upsert: true });
+    const path = `${prefix}-${Date.now()}.${ext}`;
+    const { error } = await sb.storage.from('media').upload(path, file, { upsert: true });
     if (error) throw error;
-    const { data } = sb.storage.from('media').getPublicUrl(filePath);
-    return data.publicUrl;
+    return sb.storage.from('media').getPublicUrl(path).data.publicUrl;
   }
 
   async function saveSiteSettings() {
     try {
-      showToast('Saving changes...');
+      showToast('সংরক্ষণ করা হচ্ছে...');
       let logoUrl = document.getElementById('editLogoUrl').value.trim();
       let coverUrl = document.getElementById('editCoverUrl').value.trim();
-
       const logoFile = document.getElementById('logoFileInput').files[0];
       if (logoFile) logoUrl = await uploadImageFile(logoFile, 'logo');
-
       const coverFile = document.getElementById('coverFileInput').files[0];
       if (coverFile) coverUrl = await uploadImageFile(coverFile, 'cover');
 
       const updates = {
-        id: 1,
-        logo_url: logoUrl,
-        cover_url: coverUrl,
+        id: 1, logo_url: logoUrl, cover_url: coverUrl,
         name_bn: document.getElementById('editNameBn').value.trim(),
-        name_en: document.getElementById('editNameEn').value.trim(),
-        motto_bn: document.getElementById('editMottoBn').value.trim(),
         eiin: document.getElementById('editEiin').value.trim(),
         phone: document.getElementById('editPhone').value.trim(),
         theme_primary: document.getElementById('editThemePrimary').value
       };
-
-      const { error } = await sb.from('site_settings').upsert(updates);
-      if (error) throw error;
-
+      await sb.from('site_settings').upsert(updates);
       await loadAllData();
-      showToast('Website updated successfully!');
-    } catch (err) {
-      alert('Error: ' + err.message);
-    }
+      showToast('সফলভাবে আপডেট হয়েছে!');
+    } catch (e) { alert(e.message); }
   }
 
   function renderAdminLists() {
     document.getElementById('adminNoticesList').innerHTML = state.notices.map(n => `
       <div class="admin-row">
-        <div>
-          <strong style="font-size:0.9rem;">${n.title_bn}</strong>
-          <div style="font-size:0.78rem; color:var(--muted);">${n.category} ${n.is_pinned ? '• 📌 Pinned' : ''}</div>
-        </div>
+        <div><strong>${n.title_bn}</strong><div style="font-size:0.75rem; color:var(--muted);">${n.category}</div></div>
         <button class="btn-danger" onclick="deleteNotice('${n.id}')">Delete</button>
-      </div>
-    `).join('');
+      </div>`).join('');
 
     document.getElementById('adminLinksList').innerHTML = state.links.map(l => `
       <div class="admin-row">
         <div>
-          <strong style="font-size:0.9rem;">${l.icon} ${l.title_bn}</strong>
-          <div style="font-size:0.78rem; color:var(--muted);">${l.url}</div>
+          <strong>${l.icon} ${l.title_bn}</strong>
+          <div style="font-size:0.75rem; color:var(--muted); text-transform:uppercase;">Category: ${l.category}</div>
         </div>
         <button class="btn-danger" onclick="deleteLink('${l.id}')">Delete</button>
-      </div>
-    `).join('');
+      </div>`).join('');
   }
 
   async function addNotice() {
     const title_bn = document.getElementById('newNoticeTitleBn').value.trim();
-    if (!title_bn) return alert('নোটিশের শিরোনাম লিখুন');
-
-    const payload = {
-      title_bn,
-      details_bn: document.getElementById('newNoticeDetails').value.trim(),
-      category: document.getElementById('newNoticeCategory').value,
-      is_pinned: document.getElementById('newNoticePinned').checked
-    };
-
-    const { error } = await sb.from('notices').insert(payload);
-    if (error) return alert(error.message);
-
-    document.getElementById('newNoticeTitleBn').value = '';
-    document.getElementById('newNoticeDetails').value = '';
-    await loadAllData();
-    renderAdminLists();
-    showToast('Notice published!');
+    if (!title_bn) return alert('শিরোনাম দিন');
+    await sb.from('notices').insert({
+      title_bn, details_bn: document.getElementById('newNoticeDetails').value.trim(),
+      category: document.getElementById('newNoticeCategory').value, is_pinned: document.getElementById('newNoticePinned').checked
+    });
+    document.getElementById('newNoticeTitleBn').value = ''; document.getElementById('newNoticeDetails').value = '';
+    await loadAllData(); renderAdminLists(); showToast('নোটিশ প্রকাশ করা হয়েছে!');
   }
 
-  async function deleteNotice(id) {
-    if (!confirm('Delete this notice?')) return;
-    await sb.from('notices').delete().eq('id', id);
-    await loadAllData();
-    renderAdminLists();
-    showToast('Notice deleted');
-  }
+  async function deleteNotice(id) { await sb.from('notices').delete().eq('id', id); await loadAllData(); renderAdminLists(); showToast('ডিলিট হয়েছে'); }
 
   async function addLink() {
     const title_bn = document.getElementById('newLinkTitleBn').value.trim();
     const url = document.getElementById('newLinkUrl').value.trim();
-    if (!title_bn || !url) return alert('Title এবং URL দিন');
+    const subtitle_bn = document.getElementById('newLinkSub').value.trim();
+    const icon = document.getElementById('newLinkIcon').value.trim() || '🔗';
+    const category = document.getElementById('newLinkCategory').value;
 
-    const payload = {
-      title_bn,
-      title_en: document.getElementById('newLinkTitleEn').value.trim(),
-      url,
-      icon: document.getElementById('newLinkIcon').value.trim() || '🔗',
-      category: document.getElementById('newLinkCategory').value,
-      sort_order: state.links.length + 1
-    };
-
-    const { error } = await sb.from('links').insert(payload);
+    if (!title_bn || !url) return alert('টাইটেল এবং ইউআরএল দিন');
+    
+    const { error } = await sb.from('links').insert({ title_bn, url, subtitle_bn, icon, category, sort_order: state.links.length + 1 });
     if (error) return alert(error.message);
 
-    document.getElementById('newLinkTitleBn').value = '';
-    document.getElementById('newLinkTitleEn').value = '';
-    document.getElementById('newLinkUrl').value = '';
-    await loadAllData();
-    renderAdminLists();
-    showToast('Link added!');
+    document.getElementById('newLinkTitleBn').value = ''; 
+    document.getElementById('newLinkUrl').value = ''; 
+    document.getElementById('newLinkSub').value = '';
+    await loadAllData(); 
+    renderAdminLists(); 
+    showToast('নতুন লিংক সফলভাবে যুক্ত হয়েছে!');
   }
 
-  async function deleteLink(id) {
-    if (!confirm('Delete this link?')) return;
-    await sb.from('links').delete().eq('id', id);
-    await loadAllData();
-    renderAdminLists();
-    showToast('Link deleted');
-  }
+  async function deleteLink(id) { await sb.from('links').delete().eq('id', id); await loadAllData(); renderAdminLists(); showToast('ডিলিট হয়েছে'); }
 
   loadAllData();
 </script>
